@@ -1,0 +1,11 @@
+{
+  "name": "RitnTest",
+  "version": "0.1.0",
+  "title": "RitnTest",
+  "author": "Ritn",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base"
+  ],
+  "description": "Development tool, not meant to be published. Lets the tested mods be driven through RCON: fake GUI events sent to the mod's own handlers, GUI description, screenshots."
+}
