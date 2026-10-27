@@ -140,7 +140,7 @@ def lua_argument(text):
     EN : Argument as Lua: as is if it looks like it, otherwise string within quotes."""
     if re.fullmatch(r"-?\d+(\.\d+)?|true|false|nil|\{.*\}", text, re.DOTALL):
         return text
-    return '"' + text.replace("\\", "\\\\").replace('"', '\\"') + '"'
+    return '"' + text.replace("\\", "\\\\").replace('"', '\\"').replace("\r", "\\r").replace("\n", "\\n") + '"'
 
 
 def remote_call_command(mod_name, function, arguments):
