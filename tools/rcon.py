@@ -23,7 +23,7 @@ Utilisation / Usage :
 
 Options :
     --factorio <dossier> : FR : dossier de Factorio / EN : Factorio folder
-                           (par défaut / default : W:\\Jeux\\Factorio\\claude\\factorio-2-1)
+                           (par défaut / default : variable d'environnement / environment variable RITNTEST_FACTORIO)
 """
 
 import argparse
@@ -35,9 +35,9 @@ import struct
 import sys
 import time
 
-# FR : Dossier de Factorio utilisé pour les tests
-# EN : Factorio folder used for the tests
-DEFAULT_FACTORIO = r"W:\Jeux\Factorio\claude\factorio-2-1"
+# FR : Dossier de Factorio utilisé pour les tests : variable d'environnement RITNTEST_FACTORIO (ou option --factorio)
+# EN : Factorio folder used for the tests: RITNTEST_FACTORIO environment variable (or --factorio option)
+DEFAULT_FACTORIO = os.environ.get("RITNTEST_FACTORIO")
 
 # FR : Types de paquets RCON (protocole Source)
 # EN : RCON packet types (Source protocol)
@@ -176,6 +176,11 @@ def main():
     shot.add_argument("name")
 
     options = parser.parse_args()
+
+    # FR : Dossier de Factorio obligatoire (option ou variable d'environnement)
+    # EN : Factorio folder required (option or environment variable)
+    if not options.factorio:
+        sys.exit("RitnTest: Factorio folder unknown, use --factorio <folder> or set RITNTEST_FACTORIO")
     rcon = Rcon(options.factorio)
     try:
         if options.mode == "cmd":

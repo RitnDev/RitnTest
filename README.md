@@ -3,6 +3,18 @@
 FR : Outil de développement (jamais publié) pour tester les mods Ritn dans le vrai jeu, piloté par RCON.  
 EN : Development tool (never published) to test Ritn mods inside the real game, driven through RCON.
 
+## ⚠ Sécurité / Security
+
+FR : **Ne jamais installer RitnTest sur un serveur public ou une partie partagée.** Son interface exécute n'importe quel
+code Lua dans le mod testé (`eval`) et envoie de faux évènements GUI au nom de n'importe quel joueur : un autre mod
+pourrait s'en servir. À réserver à une partie de test locale, avec RCON limité à `127.0.0.1`.  
+EN : **Never install RitnTest on a public server or a shared game.** Its interface runs any Lua code inside the tested
+mod (`eval`) and sends fake GUI events on behalf of any player: another mod could use it. Keep it for a local test
+game, with RCON limited to `127.0.0.1`.
+
+FR : La ligne de chargement ci-dessous peut rester dans un mod publié : elle ne fait rien si RitnTest n'est pas installé.  
+EN : The loading line below can stay in a published mod: it does nothing when RitnTest is not installed.
+
 ## Mod testé / Tested mod
 
 FR : Ajouter au chargement du `control.lua` du mod testé (pas dans un évènement) :  
@@ -25,6 +37,11 @@ EN : The remote interface `RitnTest_<mod>` is then available (see `interface.lua
 3. FR : « Héberger une partie » (RCON ne marche qu'en multijoueur) / EN : "Host game" (RCON only works in multiplayer).
 
 ## Client RCON
+
+FR : Dossier de Factorio : option `--factorio <dossier>`, ou variable d'environnement `RITNTEST_FACTORIO`. L'adresse et le
+mot de passe RCON sont lus dans son `config/config.ini`.  
+EN : Factorio folder: `--factorio <folder>` option, or `RITNTEST_FACTORIO` environment variable. The RCON address and
+password are read from its `config/config.ini`.
 
 ```
 python tools/rcon.py call gvv ping
