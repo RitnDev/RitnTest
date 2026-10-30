@@ -49,3 +49,10 @@ python tools/rcon.py call gvv input 1 toggle-main-frame_gvv-mod
 python tools/rcon.py call gvv describe 1 gvv_main-frame-main 2
 python tools/rcon.py screenshot gvv 1 main
 ```
+
+## Avec une IA / With an AI
+
+FR : Pour Claude Code, copier `skills/factorio-mod-ritntest/` dans `.claude/skills/` du projet (ou `~/.claude/skills/`) :
+l'IA sait alors mettre en place RitnTest, tester le mod en jeu et lire les erreurs elle-même.  
+EN : For Claude Code, copy `skills/factorio-mod-ritntest/` into the project `.claude/skills/` (or `~/.claude/skills/`):
+the AI then knows how to set RitnTest up, test the mod in game and read the errors by itself.
